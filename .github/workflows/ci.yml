@@ -2,15 +2,7 @@ name: CI
 
 on:
   push:
-    paths:
-      - 'buildsweep/**'
   pull_request:
-    paths:
-      - 'buildsweep/**'
-
-defaults:
-  run:
-    working-directory: buildsweep
 
 jobs:
   rust:
@@ -32,9 +24,9 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-          cache-dependency-path: buildsweep/apps/desktop/pnpm-lock.yaml
+          cache-dependency-path: apps/desktop/pnpm-lock.yaml
       - name: Install and build frontend
-        working-directory: buildsweep/apps/desktop
+        working-directory: apps/desktop
         run: |
           pnpm install
           pnpm build
