@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    paths:
+      - 'buildsweep/**'
+  pull_request:
+    paths:
+      - 'buildsweep/**'
+
+defaults:
+  run:
+    working-directory: buildsweep
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Test workspace
+        run: cargo test --workspace
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: buildsweep/apps/desktop/pnpm-lock.yaml
+      - name: Install and build frontend
+        working-directory: buildsweep/apps/desktop
+        run: |
+          pnpm install
+          pnpm build

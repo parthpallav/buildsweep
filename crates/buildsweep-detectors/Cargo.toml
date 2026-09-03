@@ -1,0 +1,12 @@
+[package]
+name = "buildsweep-detectors"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+buildsweep-core = { workspace = true }
+serde = { workspace = true }
+uuid = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3"

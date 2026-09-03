@@ -1,0 +1,17 @@
+[package]
+name = "buildsweep-cleaner"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+buildsweep-core = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+trash = { workspace = true }
+unicode-normalization = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3"

@@ -1,0 +1,38 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/buildsweep-core",
+    "crates/buildsweep-detectors",
+    "crates/buildsweep-scanner",
+    "crates/buildsweep-cleaner",
+    "crates/buildsweep-license",
+    "apps/desktop/src-tauri",
+    "tools/license-signer",
+]
+
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+authors = ["BuildSweep"]
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+anyhow = "1"
+chrono = { version = "0.4", features = ["serde"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "fs", "time"] }
+tokio-util = "0.7"
+uuid = { version = "1", features = ["v4", "serde"] }
+jwalk = "0.8"
+git2 = "0.19"
+trash = "5"
+ed25519-dalek = { version = "2", features = ["std"] }
+base64 = "0.22"
+unicode-normalization = "0.1"
+buildsweep-core = { path = "crates/buildsweep-core" }
+buildsweep-detectors = { path = "crates/buildsweep-detectors" }
+buildsweep-scanner = { path = "crates/buildsweep-scanner" }
+buildsweep-cleaner = { path = "crates/buildsweep-cleaner" }
+buildsweep-license = { path = "crates/buildsweep-license" }

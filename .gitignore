@@ -1,0 +1,32 @@
+# Build artifacts
+target/
+**/target/
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Tauri
+apps/desktop/dist/
+
+# License signing keys - NEVER commit
+tools/license-signer/.keys/
+*.key
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+
+# Build outputs
+*.dmg
+*.msi
+*.app
